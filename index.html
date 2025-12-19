@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>JUANES FORWARDER | Global Logistics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --blue:#0b3c5d;
+  --green:#2ecc71;
+  --bg:#f4f7fa;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:#222;
+  scroll-behavior:smooth;
+}
+
+header{
+  height:100vh;
+  background:linear-gradient(120deg,var(--blue),var(--green));
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  animation:fadeIn 1.2s ease;
+}
+
+header h1{
+  font-size:3.5rem;
+  margin:0;
+  animation:slideDown 1s ease;
+}
+
+header p{
+  font-size:1.2rem;
+  margin:20px 0;
+  opacity:0;
+  animation:fadeUp 1s ease forwards;
+  animation-delay:.5s;
+}
+
+nav button{
+  margin:5px;
+  padding:10px 18px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  background:white;
+  color:var(--blue);
+  border-radius:20px;
+}
+
+section{
+  padding:80px 10%;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .8s ease;
+}
+
+section.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  color:var(--blue);
+  margin-bottom:30px;
+  font-size:2.2rem;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+form{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+
+input,select,textarea{
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+
+textarea{grid-column:1/-1}
+
+button.submit{
+  grid-column:1/-1;
+  padding:15px;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  color:white;
+  border:none;
+  font-size:16px;
+  border-radius:30px;
+  cursor:pointer;
+  transition:transform .3s ease;
+}
+
+button.submit:hover{
+  transform:scale(1.03);
+}
+
+footer{
+  background:var(--blue);
+  color:white;
+  text-align:center;
+  padding:40px 20px;
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes slideDown{
+  from{transform:translateY(-40px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>JUANES FORWARDER</h1>
+  <p id="subtitle">Global Air & Ocean Freight Solutions</p>
+  <nav>
+    <button onclick="setLang('es')">ES</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('it')">IT</button>
+  </nav>
+</header>
+
+<section>
+  <h2 id="services_title"></h2>
+  <div class="grid">
+    <div class="card">
+      <h3 id="air_title"></h3>
+      <p id="air_text"></p>
+    </div>
+    <div class="card">
+      <h3 id="ocean_title"></h3>
+      <p id="ocean_text"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 id="about_title"></h2>
+  <p id="about_text"></p>
+</section>
+
+<section>
+  <h2 id="quote_title"></h2>
+  <form onsubmit="event.preventDefault();alert('Solicitud enviada');">
+    <input placeholder="Peso (kg)" required>
+    <input placeholder="Volumen (m³)">
+    <input placeholder="Cantidad de piezas">
+    <input placeholder="Dimensiones (L x A x H)">
+    <select>
+      <option>Aéreo</option>
+      <option>Marítimo</option>
+    </select>
+    <input placeholder="Cantidad de contenedores">
+    <textarea placeholder="Comentarios adicionales"></textarea>
+    <button class="submit">Enviar solicitud</button>
+  </form>
+</section>
+
+<section>
+  <h2 id="contact_title"></h2>
+  <p>Email: info@juanesforwarder.com</p>
+  <p>Tel: +1 000 000 0000</p>
+  <p>Operaciones en más de 100 países</p>
+</section>
+
+<footer>
+  © 2025 JUANES FORWARDER
+</footer>
+
+<script>
+const content={
+  es:{
+    services_title:"Servicios",
+    air_title:"Flete Aéreo Internacional",
+    air_text:"Soluciones rápidas y seguras de carga aérea con cobertura global.",
+    ocean_title:"Flete Marítimo Internacional",
+    ocean_text:"Servicios FCL y LCL para comercio internacional.",
+    about_title:"Sobre Nosotros",
+    about_text:"Empresa multinacional basada en una visión global y liderazgo estratégico en logística.",
+    quote_title:"Solicitud de Cotización",
+    contact_title:"Contacto"
+  },
+  en:{
+    services_title:"Services",
+    air_title:"International Air Freight",
+    air_text:"Fast and secure air freight solutions worldwide.",
+    ocean_title:"International Ocean Freight",
+    ocean_text:"FCL and LCL services for global trade.",
+    about_title:"About Us",
+    about_text:"A multinational logistics company built on a global strategic vision.",
+    quote_title:"Quotation Request",
+    contact_title:"Contact"
+  },
+  it:{
+    services_title:"Servizi",
+    air_title:"Trasporto Aereo Internazionale",
+    air_text:"Soluzioni rapide e sicure con copertura globale.",
+    ocean_title:"Trasporto Marittimo Internazionale",
+    ocean_text:"Servizi FCL e LCL per il commercio globale.",
+    about_title:"Chi Siamo",
+    about_text:"Società multinazionale fondata su una visione logistica globale.",
+    quote_title:"Richiesta di Preventivo",
+    contact_title:"Contatto"
+  }
+};
+
+function setLang(lang){
+  Object.keys(content[lang]).forEach(id=>{
+    document.getElementById(id).innerText=content[lang][id];
+  });
+}
+
+setLang("es");
+
+const sections=document.querySelectorAll("section");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add("visible");
+  });
+},{threshold:.15});
+
+sections.forEach(s=>observer.observe(s));
+</script>
+
+</body>
+</html>
