@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>JUANES FORWARDER | Flete Internacional</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+  --blue:#0b3c5d;
+  --green:#2ecc71;
+  --bg:#f4f7fa;
+}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:#222;
+}
+header{
+  background: linear-gradient(120deg, var(--blue), var(--green));
+  color:white;
+  text-align:center;
+  padding:50px 20px;
+}
+header h1{margin:0; font-size:3rem;}
+nav button{
+  margin:5px;
+  padding:10px 15px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  border-radius:20px;
+  background:white;
+  color:var(--blue);
+}
+section{padding:60px 10%;}
+h2{color:var(--blue); margin-bottom:30px;}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.card{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  text-align:center;
+}
+.card img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+.card h3{margin:10px 0;}
+footer{
+  background:var(--blue);
+  color:white;
+  text-align:center;
+  padding:40px 20px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>JUANES FORWARDER</h1>
+  <p>Soluciones de Flete Aéreo y Marítimo</p>
+  <nav>
+    <button onclick="setLang('es')">ES</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('it')">IT</button>
+  </nav>
+</header>
+
+<section>
+  <h2 id="air_title"></h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581091215361-84d8ff0caa8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FyZ28lMjBhZXJlbyUyMGZyb21+&ixlib=rb-4.0.3&q=80&w=400" alt="Avión de carga">
+      <h3>Aéreo</h3>
+      <p>Soluciones rápidas y seguras de carga aérea a nivel internacional.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 id="ocean_title"></h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542197994-0c2c28f3d0f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Portacontenedores">
+      <h3>Portacontenedores estándar</h3>
+      <p>Buques diseñados para transportar contenedores estándar de 20 y 40 pies.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1597309171191-5ce7c808b66a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Buque Panamax">
+      <h3>Panamax</h3>
+      <p>Buques adaptados a las dimensiones máximas del Canal de Panamá.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1508477086695-19738b9dcf97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Buque Post-Panamax">
+      <h3>Post-Panamax</h3>
+      <p>Buques más grandes que los Panamax, para rutas internacionales de gran volumen.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Sobre Nosotros</h2>
+  <p>JUANES FORWARDER es una empresa multinacional fundada con visión global, presente en más de 100 países y especializada en soluciones de logística aérea y marítima.</p>
+</section>
+
+<section>
+  <h2>Formulario de Cotización</h2>
+  <form onsubmit="event.preventDefault();alert('Solicitud enviada');" style="display:grid; gap:15px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+    <input placeholder="Peso (kg)" required>
+    <input placeholder="Volumen (m³)">
+    <input placeholder="Cantidad de piezas">
+    <input placeholder="Dimensiones (L x A x H)">
+    <select>
+      <option>Aéreo</option>
+      <option>Marítimo</option>
+    </select>
+    <input placeholder="Cantidad de contenedores">
+    <textarea placeholder="Comentarios adicionales"></textarea>
+    <button style="grid-column:1/-1;padding:15px;background:linear-gradient(90deg,var(--green),var(--blue));color:white;border:none;border-radius:30px;cursor:pointer;">Enviar Solicitud</button>
+  </form>
+</section>
+
+<footer>
+  © 2025 JUANES FORWARDER
+</footer>
+
+<script>
+const content={
+  es:{air_title:"Flete Aéreo Internacional",ocean_title:"Tipos de Buques Portacontenedores"},
+  en:{air_title:"International Air Freight",ocean_title:"Container Ship Types"},
+  it:{air_title:"Trasporto Aereo Internazionale",ocean_title:"Tipi di Navi Portacontenitori"}
+};
+function setLang(lang){
+  Object.keys(content[lang]).forEach(id=>{
+    document.getElementById(id).innerText=content[lang][id];
+  });
+}
+setLang("es");
+</script>
+
+</body>
+</html>
