@@ -2,159 +2,70 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>JUANES FORWARDER | Global Logistics</title>
+<title>JUANES FORWARDER | Flete Internacional</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
 :root{
   --blue:#0b3c5d;
   --green:#2ecc71;
   --bg:#f4f7fa;
 }
-
-*{box-sizing:border-box}
-
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   background:var(--bg);
   color:#222;
-  scroll-behavior:smooth;
 }
-
 header{
-  height:100vh;
-  background:linear-gradient(120deg,var(--blue),var(--green));
-  color:#fff;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  background: linear-gradient(120deg, var(--blue), var(--green));
+  color:white;
   text-align:center;
-  animation:fadeIn 1.2s ease;
+  padding:50px 20px;
 }
-
-header h1{
-  font-size:3.5rem;
-  margin:0;
-  animation:slideDown 1s ease;
-}
-
-header p{
-  font-size:1.2rem;
-  margin:20px 0;
-  opacity:0;
-  animation:fadeUp 1s ease forwards;
-  animation-delay:.5s;
-}
-
+header h1{margin:0; font-size:3rem;}
 nav button{
   margin:5px;
-  padding:10px 18px;
+  padding:10px 15px;
   border:none;
   cursor:pointer;
   font-weight:bold;
+  border-radius:20px;
   background:white;
   color:var(--blue);
-  border-radius:20px;
 }
-
-section{
-  padding:80px 10%;
-  opacity:0;
-  transform:translateY(40px);
-  transition:all .8s ease;
-}
-
-section.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-h2{
-  color:var(--blue);
-  margin-bottom:30px;
-  font-size:2.2rem;
-}
-
+section{padding:60px 10%;}
+h2{color:var(--blue); margin-bottom:30px;}
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:30px;
 }
-
 .card{
-  background:#fff;
-  padding:30px;
-  border-radius:14px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  transition:transform .4s ease,box-shadow .4s ease;
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  text-align:center;
 }
-
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 20px 40px rgba(0,0,0,.12);
+.card img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:15px;
 }
-
-form{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-
-input,select,textarea{
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:14px;
-}
-
-textarea{grid-column:1/-1}
-
-button.submit{
-  grid-column:1/-1;
-  padding:15px;
-  background:linear-gradient(90deg,var(--green),var(--blue));
-  color:white;
-  border:none;
-  font-size:16px;
-  border-radius:30px;
-  cursor:pointer;
-  transition:transform .3s ease;
-}
-
-button.submit:hover{
-  transform:scale(1.03);
-}
-
+.card h3{margin:10px 0;}
 footer{
   background:var(--blue);
   color:white;
   text-align:center;
   padding:40px 20px;
 }
-
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-@keyframes slideDown{
-  from{transform:translateY(-40px);opacity:0}
-  to{transform:translateY(0);opacity:1}
-}
-
-@keyframes fadeUp{
-  to{opacity:1;transform:translateY(0)}
-}
 </style>
 </head>
-
 <body>
 
 <header>
   <h1>JUANES FORWARDER</h1>
-  <p id="subtitle">Global Air & Ocean Freight Solutions</p>
+  <p>Soluciones de Flete Aéreo y Marítimo</p>
   <nav>
     <button onclick="setLang('es')">ES</button>
     <button onclick="setLang('en')">EN</button>
@@ -163,27 +74,45 @@ footer{
 </header>
 
 <section>
-  <h2 id="services_title"></h2>
+  <h2 id="air_title"></h2>
   <div class="grid">
     <div class="card">
-      <h3 id="air_title"></h3>
-      <p id="air_text"></p>
-    </div>
-    <div class="card">
-      <h3 id="ocean_title"></h3>
-      <p id="ocean_text"></p>
+      <img src="https://images.unsplash.com/photo-1581091215361-84d8ff0caa8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FyZ28lMjBhZXJlbyUyMGZyb21+&ixlib=rb-4.0.3&q=80&w=400" alt="Avión de carga">
+      <h3>Aéreo</h3>
+      <p>Soluciones rápidas y seguras de carga aérea a nivel internacional.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2 id="about_title"></h2>
-  <p id="about_text"></p>
+  <h2 id="ocean_title"></h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542197994-0c2c28f3d0f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Portacontenedores">
+      <h3>Portacontenedores estándar</h3>
+      <p>Buques diseñados para transportar contenedores estándar de 20 y 40 pies.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1597309171191-5ce7c808b66a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Buque Panamax">
+      <h3>Panamax</h3>
+      <p>Buques adaptados a las dimensiones máximas del Canal de Panamá.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1508477086695-19738b9dcf97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Buque Post-Panamax">
+      <h3>Post-Panamax</h3>
+      <p>Buques más grandes que los Panamax, para rutas internacionales de gran volumen.</p>
+    </div>
+  </div>
 </section>
 
 <section>
-  <h2 id="quote_title"></h2>
-  <form onsubmit="event.preventDefault();alert('Solicitud enviada');">
+  <h2>Sobre Nosotros</h2>
+  <p>JUANES FORWARDER es una empresa multinacional fundada con visión global, presente en más de 100 países y especializada en soluciones de logística aérea y marítima.</p>
+</section>
+
+<section>
+  <h2>Formulario de Cotización</h2>
+  <form onsubmit="event.preventDefault();alert('Solicitud enviada');" style="display:grid; gap:15px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
     <input placeholder="Peso (kg)" required>
     <input placeholder="Volumen (m³)">
     <input placeholder="Cantidad de piezas">
@@ -194,15 +123,8 @@ footer{
     </select>
     <input placeholder="Cantidad de contenedores">
     <textarea placeholder="Comentarios adicionales"></textarea>
-    <button class="submit">Enviar solicitud</button>
+    <button style="grid-column:1/-1;padding:15px;background:linear-gradient(90deg,var(--green),var(--blue));color:white;border:none;border-radius:30px;cursor:pointer;">Enviar Solicitud</button>
   </form>
-</section>
-
-<section>
-  <h2 id="contact_title"></h2>
-  <p>Email: info@juanesforwarder.com</p>
-  <p>Tel: +1 000 000 0000</p>
-  <p>Operaciones en más de 100 países</p>
 </section>
 
 <footer>
@@ -211,57 +133,16 @@ footer{
 
 <script>
 const content={
-  es:{
-    services_title:"Servicios",
-    air_title:"Flete Aéreo Internacional",
-    air_text:"Soluciones rápidas y seguras de carga aérea con cobertura global.",
-    ocean_title:"Flete Marítimo Internacional",
-    ocean_text:"Servicios FCL y LCL para comercio internacional.",
-    about_title:"Sobre Nosotros",
-    about_text:"Empresa multinacional basada en una visión global y liderazgo estratégico en logística.",
-    quote_title:"Solicitud de Cotización",
-    contact_title:"Contacto"
-  },
-  en:{
-    services_title:"Services",
-    air_title:"International Air Freight",
-    air_text:"Fast and secure air freight solutions worldwide.",
-    ocean_title:"International Ocean Freight",
-    ocean_text:"FCL and LCL services for global trade.",
-    about_title:"About Us",
-    about_text:"A multinational logistics company built on a global strategic vision.",
-    quote_title:"Quotation Request",
-    contact_title:"Contact"
-  },
-  it:{
-    services_title:"Servizi",
-    air_title:"Trasporto Aereo Internazionale",
-    air_text:"Soluzioni rapide e sicure con copertura globale.",
-    ocean_title:"Trasporto Marittimo Internazionale",
-    ocean_text:"Servizi FCL e LCL per il commercio globale.",
-    about_title:"Chi Siamo",
-    about_text:"Società multinazionale fondata su una visione logistica globale.",
-    quote_title:"Richiesta di Preventivo",
-    contact_title:"Contatto"
-  }
+  es:{air_title:"Flete Aéreo Internacional",ocean_title:"Tipos de Buques Portacontenedores"},
+  en:{air_title:"International Air Freight",ocean_title:"Container Ship Types"},
+  it:{air_title:"Trasporto Aereo Internazionale",ocean_title:"Tipi di Navi Portacontenitori"}
 };
-
 function setLang(lang){
   Object.keys(content[lang]).forEach(id=>{
     document.getElementById(id).innerText=content[lang][id];
   });
 }
-
 setLang("es");
-
-const sections=document.querySelectorAll("section");
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting)e.target.classList.add("visible");
-  });
-},{threshold:.15});
-
-sections.forEach(s=>observer.observe(s));
 </script>
 
 </body>
